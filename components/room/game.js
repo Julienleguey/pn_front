@@ -9,7 +9,7 @@ const Game = ({ name, roomUid }) => {
   const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
-    const socket = new WebSocket("ws://localhost:8001/ws", roomUid);
+    const socket = new WebSocket(process.env.NEXT_PUBLIC_WS_URL, roomUid);
     const timer = setInterval(() => {
       if (socket.readyState === 1) {
         clearInterval(timer);
