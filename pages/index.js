@@ -20,7 +20,7 @@ const Home = () => {
       await axios.get("ping");
       setServerReady(true);
     } catch (err) {
-      console.log("couldn't wake up the server: ", err.response);
+      console.log("couldn't wake up the server: ", err);
     }
   }
 
