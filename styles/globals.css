@@ -1,16 +1,235 @@
+/* line 7, ../sass/reset.sass */
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+button,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+font,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+meter,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+progress,
+q,
+rp,
+rt,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video,
+xmp {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+/* line 102, ../sass/reset.sass */
 html,
 body {
-  padding: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* line 106, ../sass/reset.sass */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* line 125, ../sass/reset.sass */
+b,
+strong {
+  font-weight: bold;
+}
+
+/* line 132, ../sass/reset.sass */
+img {
+  color: transparent;
+  font-size: 0;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* line 140, ../sass/reset.sass */
+ul,
+ol {
+  list-style: none;
 }
 
-* {
-  box-sizing: border-box;
+/* line 144, ../sass/reset.sass */
+li {
+  display: list-item;
+}
+
+/* line 151, ../sass/reset.sass */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 155, ../sass/reset.sass */
+th,
+td,
+caption {
+  vertical-align: top;
+  text-align: left;
+}
+
+/* line 162, ../sass/reset.sass */
+q {
+  quotes: none;
+}
+
+/* line 165, ../sass/reset.sass */
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/* line 170, ../sass/reset.sass */
+sub,
+sup,
+small {
+  font-size: 75%;
+}
+
+/* line 175, ../sass/reset.sass */
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 181, ../sass/reset.sass */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 184, ../sass/reset.sass */
+sup {
+  top: -0.5em;
+}
+
+/* line 187, ../sass/reset.sass */
+svg {
+  overflow: hidden;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+select {
+  outline: none;
+}
+
+/* https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone */
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select,
+option,
+textarea {
+  font-size: 16px;
 }

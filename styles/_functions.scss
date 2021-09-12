@@ -1,0 +1,178 @@
+@use "sass:list";
+@use "sass:string";
+@use "variables" as v;
+
+/*
+pré-requis : les breakpoints doivent être créés en dernier
+1. on ne tient pas compte des positions ni des breakpoints et on loop sur les values pour créer le plus petit niveau m-1
+2. on tient compte des positions pour créer les positions sans breakpoints ml-1
+3. on tient compte des breakpoints s'ils sont demandés avec $with-breakpoints et on loop sur les breakpoints et dans chaque breakpoint :
+  a) on ne tient pas compte des positions m-sm-2
+  b) on tient compte des positions ml-sm-2
+
+see https://stackoverflow.com/questions/10262082/css-media-queries-and-important
+someone wrote :  I realized that media queries have to be at the end of style sheets (even if you're using/importing multiple files on your workflow).
+pour toutes les classes qui se passent les unes par-dessus les autres (d-flex d-md-none d-lg-flex, par exemple), il faut créer une seule media-query et mettre toutes les classes concernées dedans
+l'erreur serait de créer une classe et de lui donner sa propre media-query car des media-queries se retrouveraient avant d'autres alors qu'elles devraient être après
+*/
+
+// Ca commençait bien et c'est devenu le bazar. Il va falloir simplifier ça.
+// On pourrait avoir:
+// un mixin qui sert à créer le default sans position
+// un mixin pour les positions
+// et un mixin pour les breakpoints et les positions à la fois (c'est loop-on-breakpoints quoi, mais ça fait déjà une propriété en moins à passer)
+
+@mixin set-classes(
+  $prefix,
+  $property,
+  $values,
+  $positions,
+  $with-breakpoints,
+  $comp-prop
+) {
+  // 1. creates the classes without the positions nor the breakpoints
+  @include loop-on-values($prefix, $property, $values, false, $comp-prop);
+
+  // 2. creates the classes for the positions but not for the breakpoints
+  @if $positions {
+    @include loop-on-positions(
+      $prefix,
+      $property,
+      $values,
+      $positions,
+      false,
+      $comp-prop
+    );
+  }
+
+  // 3. creates the breakpoints
+  @if $with-breakpoints {
+    @include loop-on-breakpoints(
+      $prefix,
+      $property,
+      $values,
+      $positions,
+      $comp-prop
+    );
+  }
+}
+
+@mixin loop-on-positions(
+  $prefix,
+  $property,
+  $values,
+  $positions,
+  $breakpoint-short,
+  $comp-prop
+) {
+  @each $position-short, $position-long in $positions {
+    $new-prefix: set-new-prefix($prefix, $position-short); // ml
+    $properties: set-properties-list(
+      $property,
+      $position-long
+    ); // could be only one, like "right" for "r", could be "right" & "left" for "x", return (margin-right, margin-left)
+
+    @include loop-on-values(
+      $new-prefix,
+      $properties,
+      $values,
+      $breakpoint-short,
+      $comp-prop
+    );
+  }
+}
+
+@function set-new-prefix($prefix, $position-short) {
+  @if string.length($prefix) == 1 {
+    @return $prefix + $position-short;
+  } @else {
+    @debug $position-short;
+    @return $prefix + "-" + $position-short;
+  }
+}
+
+@function set-properties-list($property, $position-long) {
+  $properties: ();
+  @each $position-long-el in $position-long {
+    $properties: list.append($properties, $property + "-" + $position-long-el);
+  }
+  @return $properties;
+}
+
+@mixin loop-on-breakpoints(
+  $prefix,
+  $property,
+  $values,
+  $positions,
+  $comp-prop
+) {
+  @each $breakpoint-short, $breakpoint-value in v.$breakpoints {
+    @media (min-width: $breakpoint-value) {
+      // 3.a) creates the classes without the positions
+      @include loop-on-values(
+        $prefix,
+        $property,
+        $values,
+        $breakpoint-short,
+        $comp-prop
+      );
+
+      // 3.b) creates the classes for the positions
+      @if $positions {
+        @include loop-on-positions(
+          $prefix,
+          $property,
+          $values,
+          $positions,
+          $breakpoint-short,
+          $comp-prop
+        );
+      }
+    }
+  }
+}
+
+@mixin loop-on-values(
+  $prefix,
+  $properties,
+  $values,
+  $breakpoint-short,
+  $comp-prop
+) {
+  @each $value-short, $value-long in $values {
+    .#{set-class-name($prefix, $breakpoint-short, $value-short)} {
+      @include write-properties($properties, $value-long);
+      @include add-complementary-properties($comp-prop);
+    }
+  }
+}
+
+@function set-class-name($prefix, $breakpoint-short, $value-short) {
+  @if $breakpoint-short {
+    @if $value-short == "default" {
+      @return #{$prefix}-#{$breakpoint-short};
+    } @else {
+      @return #{$prefix}-#{$breakpoint-short}-#{$value-short};
+    }
+  } @else {
+    @if $value-short == "default" {
+      @return #{$prefix};
+    } @else {
+      @return #{$prefix}-#{$value-short};
+    }
+  }
+}
+
+@mixin write-properties($properties, $value-long) {
+  @each $property in $properties {
+    #{$property}: $value-long;
+  }
+}
+
+@mixin add-complementary-properties($comp-prop) {
+  @if $comp-prop {
+    @each $comp-prop-key, $comp-prop-value in $comp-prop {
+      #{$comp-prop-key}: $comp-prop-value;
+    }
+  }
+}

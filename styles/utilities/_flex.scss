@@ -1,0 +1,105 @@
+@use "../functions" as f;
+
+/********************************
+flex rows and columns directions
+********************************/
+$directions: (
+  "col": column,
+  "row": row,
+  "colr": column-reverse,
+  "rowr": row-reverse,
+);
+
+@include f.set-classes("f", "flex-direction", $directions, false, true, false);
+
+/********************
+flex wrap
+********************/
+$wraps: (
+  "wrap": wrap,
+  "nowrap": nowrap,
+  "wrap-reverse": wrap-reverse,
+);
+
+@include f.set-classes("fw", "flex-wrap", $wraps, false, true, false);
+
+/********************
+justify content
+********************/
+$justifies: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "sb": space-between,
+  "sa": space-around,
+  "se": space-evenly,
+);
+
+@include f.set-classes("jc", "justify-content", $justifies, false, true, false);
+
+/********************
+align items
+********************/
+$align-items: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "stretch": stretch,
+  "baseline": baseline,
+);
+
+@include f.set-classes("ai", "align-items", $align-items, false, true, false);
+
+/********************
+align content
+********************/
+$align-content: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "sb": space-between,
+  "sa": space-around,
+  "se": space-evenly,
+);
+
+@include f.set-classes(
+  "ac",
+  "align-content",
+  $align-content,
+  false,
+  true,
+  false
+);
+
+/************************
+flex order
+************************/
+@for $i from 1 through 10 {
+  .order-#{$i} {
+    order: $i;
+  }
+}
+
+/************************
+flex grow
+************************/
+@for $i from 1 through 10 {
+  .flex-#{$i} {
+    flex: $i;
+  }
+}
+
+/************************
+flex align-self
+************************/
+
+$align-self: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "stretch": stretch,
+  "baseline": baseline,
+  "auto": auto,
+);
+
+@include f.set-classes("as", "align-self", $align-items, false, true, false);

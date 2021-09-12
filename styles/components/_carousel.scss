@@ -1,0 +1,38 @@
+@use "../variables" as v;
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.btn-carousel {
+  min-width: v.$u6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: v.$primary;
+  margin: 0 0 0 v.$u2;
+  border-radius: 0 8px 8px 0;
+  max-height: 160px;
+
+  &.left {
+    margin: 0 v.$u2 0 0;
+    border-radius: 8px 0 0 8px;
+  }
+}
+
+.arrow-container {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.left {
+    transform: rotate(180deg);
+  }
+}

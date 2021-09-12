@@ -1,0 +1,86 @@
+@use "../variables" as v;
+
+// todo :
+// text-left text-center text-right (with breakpoints)
+// font-weight-lighter font-weight-light font-weight-normal font-weight-bold font-weight-bolder (no breakpoints)
+// font-italic font-no-italic
+// text-wrapping and overflow
+// font-size: 1rem; font-size-sm: 14px; font-size-xs: 12px;
+
+p,
+a {
+  color: v.$darker;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-weight-lighter {
+  font-weight: v.$font-lighter;
+}
+
+.font-weight-light {
+  font-weight: v.$font-light;
+}
+
+.font-weight-normal {
+  font-weight: v.$font-normal;
+}
+
+.font-weight-bold {
+  font-weight: v.$font-bold;
+}
+
+.font-weight-bolder {
+  font-weight: v.$font-bolder;
+}
+
+.font-size-xs {
+  font-size: 12px;
+}
+
+.font-size-sm {
+  font-size: 14px;
+}
+
+.font-size-normal {
+  font-size: 1rem;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.no-italic {
+  font-style: normal;
+}
+
+.text-ws-nowrap {
+  white-space: nowrap;
+}
+
+.text-ws-normal {
+  white-space: normal;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.text-underline {
+  text-decoration: underline;
+}

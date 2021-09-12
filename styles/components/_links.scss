@@ -1,0 +1,11 @@
+@use "../variables" as v;
+
+.link {
+  color: v.$lighter;
+  text-decoration: none;
+  font-weight: v.$font-normal;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

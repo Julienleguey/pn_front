@@ -1,0 +1,93 @@
+@use "../variables" as v;
+@use "../functions" as f;
+
+/***************************
+borders add, remove, width
+***************************/
+$border-sizes: (
+  "default": v.$border-width-sm solid v.$border-default-color,
+  "sm": v.$border-width-sm solid v.$border-default-color,
+  "md": v.$border-width-md solid v.$border-default-color,
+  "lg": v.$border-width-lg solid v.$border-default-color,
+  "0": 0,
+);
+
+$sides: (
+  "top": "top",
+  "right": "right",
+  "bottom": "bottom",
+  "left": "left",
+);
+
+$complementary-property: (
+  box-sizing: border-box,
+);
+
+@include f.set-classes(
+  "border",
+  "border",
+  $border-sizes,
+  $sides,
+  false,
+  $complementary-property
+);
+
+/****************
+borders colors
+****************/
+@each $color, $value in v.$colors {
+  .border-#{$color} {
+    border-color: $value;
+  }
+}
+
+/***************
+borders radius
+***************/
+$radius-sizes: (
+  "default": v.$border-radius-sm,
+  "sm": v.$border-radius-sm,
+  "md": v.$border-radius-md,
+  "lg": v.$border-radius-lg,
+  "0": 0,
+);
+
+$corners: (
+  "tl": "top-left-radius",
+  "tr": "top-right-radius",
+  "bl": "bottom-left-radius",
+  "br": "bottom-right-radius",
+  "t": (
+    "top-left-radius",
+    "top-right-radius",
+  ),
+  "r": (
+    "top-right-radius",
+    "bottom-right-radius",
+  ),
+  "b": (
+    "bottom-left-radius",
+    "bottom-right-radius",
+  ),
+  "l": (
+    "top-left-radius",
+    "bottom-left-radius",
+  ),
+);
+
+@include f.set-classes(
+  "radius",
+  "border",
+  $radius-sizes,
+  $corners,
+  false,
+  false
+);
+
+.circle {
+  border-radius: 50%;
+}
+
+.pill {
+  border-radius: 50rem;
+}

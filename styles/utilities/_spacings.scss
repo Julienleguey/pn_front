@@ -1,0 +1,20 @@
+@use "../variables" as v;
+@use "../functions" as f;
+
+$positions: (
+  "t": "top",
+  "r": "right",
+  "b": "bottom",
+  "l": "left",
+  "x": (
+    "right",
+    "left",
+  ),
+  "y": (
+    "top",
+    "bottom",
+  ),
+);
+
+@include f.set-classes("m", "margin", v.$fixed-units, $positions, true, false);
+@include f.set-classes("p", "padding", v.$fixed-units, $positions, true, false);

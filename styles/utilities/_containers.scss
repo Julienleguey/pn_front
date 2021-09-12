@@ -1,0 +1,80 @@
+@use "../variables" as v;
+
+$breakpoints-list: (
+  default: (
+    sm,
+    md,
+    lg,
+    xl,
+  ),
+  sm: (
+    sm,
+    md,
+    lg,
+    xl,
+  ),
+  md: (
+    md,
+    lg,
+    xl,
+  ),
+  lg: (
+    lg,
+    xl,
+  ),
+  xl: (
+    xl,
+  ),
+);
+
+$container-max-widths: (
+  sm: 500px,
+  md: 680px,
+  lg: 920px,
+  xl: 1100px,
+);
+
+@mixin container-default {
+  min-width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+@mixin media($breakpoint-name, $container-width) {
+  @media (min-width: $breakpoint-name) {
+    min-width: $container-width;
+    max-width: $container-width;
+  }
+}
+
+@each $breakpoint-list-key, $breakpoint-list-value in $breakpoints-list {
+  @if $breakpoint-list-key == "default" {
+    .container {
+      @include container-default;
+      @each $breakpoint-name in $breakpoint-list-value {
+        @include media(
+          map-get(v.$breakpoints, $breakpoint-name),
+          map-get($container-max-widths, $breakpoint-name)
+        );
+      }
+    }
+  } @else {
+    .container-#{$breakpoint-list-key} {
+      @include container-default;
+      @each $breakpoint-name in $breakpoint-list-value {
+        @include media(
+          map-get(v.$breakpoints, $breakpoint-name),
+          map-get($container-max-widths, $breakpoint-name)
+        );
+      }
+    }
+  }
+}
+
+.container-tiny {
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 auto;
+}

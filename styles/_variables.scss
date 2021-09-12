@@ -1,0 +1,132 @@
+/******************
+COLORS
+******************/
+$primary: #f09887;
+$secondary: #786fa6;
+$success: #b8e994;
+$info: #63cdda;
+$warning: #ff5722;
+$danger: #e55039;
+$white: #fff;
+$lighter: #eeeeee;
+$light: #dee2e6;
+$gray: #adb5bd;
+$dark: #2d4059;
+$darker: #222831;
+$black: #000;
+
+// colors list to run loop on
+$colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "white": $white,
+  "lighter": $lighter,
+  "light": $light,
+  "gray": $gray,
+  "dark": $dark,
+  "darker": $darker,
+  "black": $black,
+  "transparent": transparent,
+);
+
+/******************
+BREAKPOINTS
+******************/
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+/******************
+UNITS
+******************/
+$u0: 0;
+$u1: 0.25rem;
+$u2: 0.5rem;
+$u3: 1rem;
+$u4: 1.5rem;
+$u5: 2rem;
+$u6: 3rem;
+$u7: 4rem;
+$u8: 5rem;
+$u9: 6rem;
+$u10: 7rem;
+
+$fixed-units: (
+  0: $u0,
+  1: $u1,
+  2: $u2,
+  3: $u3,
+  4: $u4,
+  5: $u5,
+  6: $u6,
+  7: $u7,
+  8: $u8,
+  9: $u9,
+  10: $u10,
+  auto: auto,
+);
+
+$relative-units: (
+  25: 25%,
+  33: 33.333333%,
+  50: 50%,
+  67: 66.666666%,
+  75: 75%,
+  100: 100%,
+);
+
+$view-units: (
+  25vw: 25vw,
+  33vw: 33.333333vw,
+  50vw: 50vw,
+  67vw: 66.666666vw,
+  75vw: 75vw,
+  100vw: 100vw,
+  25vh: 25vh,
+  33vh: 33.333333vh,
+  50vh: 50vh,
+  67vh: 66.666666vh,
+  75vh: 75vh,
+  100vh: 100vh,
+);
+
+/******************
+FONTS
+******************/
+$font-lighter: 100;
+$font-light: 300;
+$font-normal: 400;
+$font-bold: 500;
+$font-bolder: 700;
+
+$font-family-base: "HK Grotesk", "Segoe UI", Roboto, "Helvetica Neue", Arial,
+  "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+/******************
+BORDERS
+******************/
+$border-default-color: $primary;
+
+$border-width-sm: 1px;
+$border-width-md: 2px;
+$border-width-lg: 4px;
+
+$border-radius-sm: $u1;
+$border-radius-md: $u2;
+$border-radius-lg: $u3;
+
+/******************
+BOX-SHADOW
+******************/
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($lighter, 0.075);
+$box-shadow: 0 0.5rem 1rem rgba($lighter, 0.15);
+$box-shadow-lg: 0 1rem 3rem rgba($lighter, 0.175);

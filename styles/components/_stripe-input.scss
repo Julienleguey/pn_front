@@ -1,0 +1,19 @@
+@use "../variables" as v;
+
+.stripe-input {
+  border-style: solid;
+  border-width: v.$border-width-sm;
+  border-color: v.$border-default-color;
+
+  &.complete {
+    border-color: v.$success;
+  }
+
+  &.focus {
+    border-color: v.$primary;
+  }
+
+  &.invalid {
+    border-color: v.$danger;
+  }
+}

@@ -1,0 +1,27 @@
+// TODO: negative values
+@use "../variables" as v;
+@use "../functions" as f;
+
+$values: (
+  "relative": relative,
+  "absolute": absolute,
+  "static": static,
+  "sticky": sticky,
+  "float": float,
+);
+
+$sides: (top, right, bottom, left);
+
+@include f.set-classes("pos", "position", $values, false, false, false);
+
+@each $side in $sides {
+  @include f.set-classes($side, $side, v.$fixed-units, false, false, false);
+  @include f.set-classes($side, $side, v.$relative-units, $sides, false, false);
+  @include f.set-classes($side, $side, v.$view-units, $sides, false, false);
+}
+
+@for $i from 1 through 1000 {
+  .z-#{$i} {
+    z-index: $i;
+  }
+}

@@ -1,0 +1,13 @@
+@use "../variables" as v;
+
+select {
+  width: 100%;
+  background-color: v.$dark;
+  color: v.$lighter;
+  height: 40px;
+  border-color: v.$primary;
+
+  &:focus {
+    border-color: v.$lighter;
+  }
+}

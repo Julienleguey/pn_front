@@ -1,0 +1,66 @@
+@use "../variables" as v;
+
+.note-card {
+  height: 90px;
+  width: 60px;
+  border-radius: v.$border-radius-sm;
+  border-style: solid;
+  border-width: v.$border-width-md;
+  border-color: v.$primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: v.$u3;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  span {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  &.selected {
+    background-color: v.$primary;
+  }
+
+  &.disabled {
+    background-color: v.$gray;
+    cursor: not-allowed;
+  }
+}
+
+.player-card {
+  height: 150px;
+  width: 100px;
+  border-radius: v.$border-radius-sm;
+  border-style: solid;
+  border-width: v.$border-width-md;
+  border-color: v.$primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: v.$u3;
+  padding: v.$u3;
+  position: relative;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  span {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  &.with-note {
+    background-color: v.$primary;
+
+    span {
+      color: v.$darker;
+    }
+  }
+}

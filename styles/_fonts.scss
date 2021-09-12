@@ -1,0 +1,97 @@
+// ça devrait plutôt être dans variables, ça, non ? Ou dans _app.scss
+// écoute, je sais pas, fais comme tu le sens
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+// ici c'est plutôt un fichier pour importer les fichiers de fonts
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("./fonts/HKGrotesk-Light.woff") format("woff");
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("./fonts/HKGrotesk-LightItalic.woff") format("woff");
+  font-style: italic;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("./fonts/HKGrotesk-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("./fonts/HKGrotesk-Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("./fonts/HKGrotesk-Medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("./fonts/HKGrotesk-MediumItalic.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("./fonts/HKGrotesk-SemiBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("./fonts/HKGrotesk-SemiBoldItalic.woff") format("woff");
+  font-style: italic;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("./fonts/HKGrotesk-Bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("./fonts/HKGrotesk-BoldItalic.woff") format("woff");
+  font-style: italic;
+  font-weight: 700;
+}

@@ -1,0 +1,16 @@
+// je ne savais pas où mettre ça, mais c'est pratique ces trucs
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+.pe-none {
+  pointer-events: none;
+}
+
+.pe-auto {
+  pointer-events: auto;
+}

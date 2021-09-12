@@ -1,0 +1,144 @@
+@use "../variables" as v;
+
+input {
+  height: 24px;
+  border-style: solid;
+  border-width: v.$border-width-sm;
+  border-color: v.$border-default-color;
+  outline: none;
+  background-color: v.$lighter;
+  color: v.$primary;
+
+  &:focus {
+    border-color: v.$primary;
+  }
+}
+
+textarea {
+  height: 24px;
+  border-style: solid;
+  border-width: v.$border-width-sm;
+  border-color: v.$border-default-color;
+  outline: none;
+  max-width: 207px;
+  resize: none;
+
+  &:focus {
+    border-color: v.$primary;
+  }
+}
+
+/********************
+FOR THE RANGE
+********************/
+// https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+
+@mixin thumb {
+  border: 1px solid #000000;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background: v.$secondary;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+@mixin track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: v.$dark;
+  border-radius: 3px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+  border: none;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @include thumb;
+  margin-top: -5px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type="range"]::-moz-range-thumb {
+  @include thumb;
+}
+
+/* All the same stuff for IE */
+input[type="range"]::-ms-thumb {
+  @include thumb;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  @include track;
+}
+
+input[type="range"]::-moz-range-track {
+  @include track;
+}
+
+input[type="range"]::-ms-track {
+  @include track;
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/*************************
+FOR THE CHECKBOX
+***************************/
+
+.checkbox-component {
+  display: flex;
+  cursor: pointer;
+  max-height: 20px;
+  align-items: center;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: relative;
+    min-height: 1rem;
+    max-height: 1rem;
+    min-width: 1rem;
+    max-width: 1rem;
+    border: 2px solid v.$dark;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+    }
+  }
+
+  &:hover .checkmark {
+    border-color: v.$secondary;
+  }
+
+  input:checked ~ .checkmark {
+    &:after {
+      content: url("../images/checkmark.svg");
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}

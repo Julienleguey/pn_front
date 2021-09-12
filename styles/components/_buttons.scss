@@ -1,0 +1,57 @@
+@use "../variables" as v;
+
+.btn {
+  cursor: pointer;
+  border-radius: v.$border-radius-sm;
+  border-style: solid;
+  border-width: v.$border-width-md;
+  transition: all 200ms ease;
+  box-sizing: border-box;
+
+  &:focus {
+    outline-color: v.$lighter;
+  }
+
+  &.small {
+    padding: 0.5rem 1rem;
+  }
+
+  &.large {
+    padding: 1rem 2rem;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.outlined {
+    background-color: transparent;
+  }
+  &.outlined:hover,
+  &.outlined:active {
+    background-color: currentcolor;
+  }
+  &:disabled {
+    background-color: v.$light;
+    border-color: v.$light;
+    p {
+      color: v.$white !important; // c'est obligé, ça ?
+    }
+  }
+}
+
+.btn-link {
+  cursor: pointer;
+  background-color: transparent;
+  color: v.$dark;
+  line-height: v.$u4;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

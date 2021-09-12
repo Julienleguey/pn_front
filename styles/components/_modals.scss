@@ -1,0 +1,85 @@
+@use "../variables" as v;
+
+#modal-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+#modal-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: v.$light;
+  opacity: 0.2;
+  z-index: 10001;
+}
+
+#modal-box {
+  z-index: 10002;
+  background-color: v.$darker;
+  width: 90%;
+  max-height: 80vh;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: map-get(v.$breakpoints, "sm")) {
+    max-width: 400px;
+  }
+
+  @media (min-width: map-get(v.$breakpoints, "md")) {
+    max-width: 500px;
+  }
+
+  @media (min-width: map-get(v.$breakpoints, "lg")) {
+    max-width: 800px;
+  }
+
+  @media (min-width: map-get(v.$breakpoints, "xl")) {
+    max-width: 1140px;
+  }
+
+  &.full-height {
+    min-height: 80vh;
+  }
+}
+
+#modal-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+// ça on devrait pouvoir s'en servir partout, pas seulement dans les modals
+// et puis ce code est suspect avec ses important, là
+// à revoir
+.max-width-xs {
+  max-width: 300px !important;
+}
+
+.max-width-sm {
+  max-width: 400px !important;
+}
+
+.max-width-md {
+  max-width: 500px !important;
+}
+
+.max-width-lg {
+  max-width: 800px !important;
+}
+
+.max-width-xl {
+  max-width: 1140px !important;
+}
+
+.no-scroll {
+  overflow: hidden;
+}

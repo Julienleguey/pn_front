@@ -1,0 +1,17 @@
+@use "../variables" as v;
+
+.shadow-sm {
+  box-shadow: v.$box-shadow-sm;
+}
+
+.shadow {
+  box-shadow: v.$box-shadow;
+}
+
+.shadow-lg {
+  box-shadow: v.$box-shadow-lg;
+}
+
+.shadow-none {
+  box-shadow: none;
+}

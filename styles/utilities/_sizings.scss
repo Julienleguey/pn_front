@@ -1,0 +1,103 @@
+@use "../variables" as v;
+@use "../functions" as f;
+
+/******************
+widths
+******************/
+@include f.set-classes("w", "width", v.$fixed-units, false, false, false);
+@include f.set-classes("w", "width", v.$relative-units, false, false, false);
+@include f.set-classes("w", "width", v.$view-units, false, false, false);
+
+@include f.set-classes(
+  "minw",
+  "min-width",
+  v.$fixed-units,
+  false,
+  false,
+  false
+);
+@include f.set-classes(
+  "minw",
+  "min-width",
+  v.$relative-units,
+  false,
+  false,
+  false
+);
+@include f.set-classes("minw", "min-width", v.$view-units, false, false, false);
+
+@include f.set-classes(
+  "maxw",
+  "max-width",
+  v.$fixed-units,
+  false,
+  false,
+  false
+);
+@include f.set-classes(
+  "maxw",
+  "max-width",
+  v.$relative-units,
+  false,
+  false,
+  false
+);
+@include f.set-classes("maxw", "max-width", v.$view-units, false, false, false);
+
+/******************
+heights
+******************/
+
+@include f.set-classes("h", "height", v.$fixed-units, false, false, false);
+@include f.set-classes("h", "height", v.$relative-units, false, false, false);
+@include f.set-classes("h", "height", v.$view-units, false, false, false);
+
+@include f.set-classes(
+  "minh",
+  "min-height",
+  v.$fixed-units,
+  false,
+  false,
+  false
+);
+@include f.set-classes(
+  "minh",
+  "min-height",
+  v.$relative-units,
+  false,
+  false,
+  false
+);
+@include f.set-classes(
+  "minh",
+  "min-height",
+  v.$view-units,
+  false,
+  false,
+  false
+);
+
+@include f.set-classes(
+  "maxh",
+  "max-height",
+  v.$fixed-units,
+  false,
+  false,
+  false
+);
+@include f.set-classes(
+  "maxh",
+  "max-height",
+  v.$relative-units,
+  false,
+  false,
+  false
+);
+@include f.set-classes(
+  "maxh",
+  "max-height",
+  v.$view-units,
+  false,
+  false,
+  false
+);
